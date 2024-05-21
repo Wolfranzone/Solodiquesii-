@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quieres ser mi noviaaaa?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden; /* Evita la barra de desplazamiento horizontal */
+    }
+    #container {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 2s ease;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    h1 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 20px;
+      animation: slideInUp 1s ease;
+    }
+    #buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideInLeft 1s ease;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #btnNo {
+      background-color: #f44336;
+    }
+    #btnNo:hover {
+      background-color: #d32f2f;
+    }
+    img {
+      margin-top: 30px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: rotate 3s infinite linear;
+      transition: transform 0.3s;
+    }
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+    #musicPlayer {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: slideInDown 1s ease;
+      background-image: url('soloyo.jpg'); /* Reemplaza 'musica.jpg' con la ruta de tu imagen de fondo */
+      background-size: cover;
+      background-position: center;
+    }
+    #musicPlayer h1 {
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    /* Efecto de paralaje en el fondo */
+    html {
+      background-image: url('rosado.jpg'); /* Reemplaza 'rosado.jpg' con la ruta de tu imagen de fondo */
+      background-size: cover;
+      background-attachment: fixed; /* Fija el fondo mientras se desplaza la página */
+      background-position: center;
+      animation: parallax 10s infinite alternate; /* Animación de paralaje */
+    }
+    @keyframes parallax {
+      from {
+        background-position: center;
+      }
+      to {
+        background-position: top;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Sé que me comporté como un idiota, no encuentro justificación. ¿Quieres darme otra oportunidad? Me sorprendiste como siempre, tu forma de ser me encantó, lo bien que me sentía y de repente el mundo se volvió un infinito de posibilidades.</h1>
+    <div id="buttons">
+      <button onclick="accionParaCuandoEllaDigaQueSi()" id="btnSi">Sí</button>
+      <button id="btnNo" onmouseover="mueveElBoton()">No</button>
+    </div>
+    <img src="img/2.jpeg" alt="" width="200">
+  </div>
+
+  <!-- Reproductor de música -->
+  <div id="musicPlayer">
+    <h1>Aunque no dure más que hoy, una parte de mí se quedará mañana</h1>
+    <audio controls autoplay>
+      <source src="loco.mp3.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+  </div>
+
+  <!-- Script para reproducir el audio automáticamente -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.querySelector('audio');
+      audio.play();
+    });
+
+    function accionParaCuandoEllaDigaQueSi() {
+      const respuesta = confirm("Gracias no te arrepentiras");
+      if (respuesta) {
+        // Redireccionar a la nueva página si responde "Sí"
+        window.location.href = "opcionsi.html";
+      } else {
+        alert("Espero te caigas de tu cama 😊");
+      }
+    }
+
+    function mueveElBoton() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      const newWidth = Math.random() * width;
+      const newHeight = Math.random() * height;
+
+      const btnNo = document.getElementById("btnNo");
+      btnNo.style.position = "absolute";
+      btnNo.style.left = newWidth + "px";
+      btnNo.style.top = newHeight + "px";
+    }
+  </script>
+</body>
+</html>

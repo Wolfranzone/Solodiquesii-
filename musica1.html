@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Música</title>
+</head>
+<body>
+  <h1>Reproductor de Música</h1>
+  
+  <!-- Reproductor de música con reproducción automática (si el navegador lo permite) -->
+  <audio controls autoplay>
+    <source src="loco.mp3.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <!-- Script para reproducir el audio automáticamente -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.querySelector('audio');
+      audio.play();
+    });
+  </script>
+</body>
+</html>
